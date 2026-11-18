@@ -11,7 +11,7 @@ jobs:
               with:
                 node-version: 20
             - name: Download Dependencies
-              run: node ci
+              run: npm ci
             - name: Running Lint Command
               run: npm run lint:fix
     test:
@@ -24,7 +24,7 @@ jobs:
               with:
                 node-version: 20
             - name: Download Dependencies
-              run: node ci
+              run: npm ci
             - name: Running Lint Command
               run: npm test
     deploy:
@@ -38,6 +38,8 @@ jobs:
               with:
                 node-version: 20
             - name: Download Dependencies
-              run: node ci
+              run: npm ci
             - name: Running Lint Command
-              run: npm test
+              run: echo "Test And Lint Successful Deploying the Project in 1..2..3.."
+
+
