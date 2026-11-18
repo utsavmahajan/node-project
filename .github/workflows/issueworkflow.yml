@@ -1,0 +1,17 @@
+name: IssueTrigger
+on: issues
+jobs:
+    issue:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Downloading Code
+              uses: actions/checkout@v3
+            - name: Setting Up Node
+              uses: actions/setup-node@v3
+              with:
+                node-version: 20
+            - name: Downloading Dependencies
+              run: npm ci
+            - name: Show issue
+              run: echo "${{ toJson(github) }}"
+             
