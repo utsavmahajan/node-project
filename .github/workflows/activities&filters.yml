@@ -1,0 +1,27 @@
+name: activities&filterssDEMO
+on:
+    pull_request:
+        types:
+            - opened
+
+    workflow_dispatch:
+
+    push:
+        branches:
+            - "main"
+            - "dev-*" # ex dev-test,dev-test-ci etc
+            - "dev/**" # ex dev/ui/xyz dev/test etc
+
+        paths-ignore:
+            - ".github/workflow/*"
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: testing
+              run: echo "${{ github.event }}"
+
+# adding this to a comment [skip ci] skips the entire CI run
+# example git add . git commit -m "Added a Comment [skip ci]" git push
+
